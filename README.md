@@ -49,20 +49,18 @@ LLM_BASE_URL=http://your-llm-api-host:4000/v1
 
 You can create the Slack app either manually or from the included manifest.
 
-### Option A: use the manifest
+### Option A: use the manifest (Recommended)
+
+The manifest is the fastest way to configure the app, as it automatically sets up the required scopes and event subscriptions.
 
 1. Go to <https://api.slack.com/apps>.
 2. Click **Create New App**.
 3. Choose **From an app manifest**.
 4. Select your workspace.
-5. Paste the contents of:
+5. Open `slack/app-manifest.yml` in this repository, copy the entire YAML content, and paste it into the manifest editor in Slack.
+6. Click **Next** and then **Create App**.
+7. Go to **OAuth & Permissions** and click **Install to Workspace** (or **Reinstall to Workspace** if you've made changes).
 
-```text
-slack/app-manifest.yml
-```
-
-6. Create the app.
-7. Go to **OAuth & Permissions** and install/reinstall the app to the workspace.
 
 The manifest includes these bot scopes:
 
