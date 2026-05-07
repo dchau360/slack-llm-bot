@@ -1,0 +1,22 @@
+services:
+  slack-llm-bot:
+    build:
+      context: ./bot
+    image: slack-llm-bot:latest
+    container_name: slack-llm-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
+      SLACK_APP_TOKEN: ${SLACK_APP_TOKEN}
+      BOT_NAME: ${BOT_NAME:-local-llm}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      MAX_THREAD_MESSAGES: ${MAX_THREAD_MESSAGES:-50}
+      MAX_RESPONSE_TOKENS: ${MAX_RESPONSE_TOKENS:-1600}
+      RESPOND_TO_THREAD_FOLLOWUPS: ${RESPOND_TO_THREAD_FOLLOWUPS:-false}
+      ENABLE_DM_THREAD_LINK_SUMMARY: ${ENABLE_DM_THREAD_LINK_SUMMARY:-true}
+      LLM_BASE_URL: ${LLM_BASE_URL:-http://your-llm-api-host:4000/v1}
+      LLM_API_KEY: ${LLM_API_KEY:-sk-local}
+      LLM_MODEL: ${LLM_MODEL:-local-chat}
+      LLM_TEMPERATURE: ${LLM_TEMPERATURE:-0.2}
