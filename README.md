@@ -6,7 +6,7 @@ The bot uses Slack Socket Mode, so the host running Docker does not need to expo
 
 ## LLM API endpoint
 
-Yes, `LLM_BASE_URL` is an OpenAI-compatible API base URL. The bot uses the OpenAI Python SDK, but the server does not have to be OpenAI. It can be LiteLLM, vLLM, llama.cpp server, Text Generation Inference behind an OpenAI-compatible proxy, Ollama behind LiteLLM, or any service that supports the OpenAI chat completions API.
+`LLM_BASE_URL` is an OpenAI-compatible API base URL. The bot uses the OpenAI Python SDK, but the server does not have to be OpenAI. It can be LiteLLM, vLLM, llama.cpp server, Text Generation Inference behind an OpenAI-compatible proxy, Ollama behind LiteLLM, or any service that supports the OpenAI chat completions API.
 
 Set `LLM_BASE_URL` to the API base path that ends in `/v1`, not the full completions route. The bot calls `/chat/completions` under that base URL.
 
@@ -109,12 +109,7 @@ For group DMs, also add:
 mpim:history
 ```
 
-Under **App Home**, enable:
-
-```text
-Messages Tab
-Allow users to send Slash commands and messages from the messages tab
-```
+Under **App Home**, enable the **Messages Tab** to allow users to send Slash commands and messages to the bot.
 
 The exact label can vary in Slack’s UI. The important part is that users can DM the app.
 
